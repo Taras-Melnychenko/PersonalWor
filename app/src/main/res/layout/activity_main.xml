@@ -13,7 +13,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Hello World!"
+        android:id="@+id/textViewHW" />
 
     <TextView
         android:text="TextView"
@@ -25,15 +26,15 @@
         android:layout_marginBottom="99dp"
         android:id="@+id/textView" />
 
-    <Button
-        android:text="Button"
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="48dp"
-        android:id="@+id/button" />
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@+id/editTextStreet"
+        android:layout_alignEnd="@+id/editTextStreet"
+        android:layout_marginTop="29dp"
+        android:id="@+id/editTextNumber" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -41,19 +42,16 @@
         android:inputType="textPersonName"
         android:text="Street"
         android:ems="10"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
-        android:id="@+id/editTextStreet" />
+        android:id="@+id/editTextStreet"
+        android:layout_marginTop="54dp"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true" />
 
-    <EditText
+    <Button
+        android:text="Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="CountOfPeople"
-        android:ems="10"
-        android:layout_below="@+id/editTextStreet"
-        android:layout_alignStart="@+id/editTextStreet"
-        android:layout_marginTop="29dp"
-        android:id="@+id/editTextPeople" />
+        android:id="@+id/button"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

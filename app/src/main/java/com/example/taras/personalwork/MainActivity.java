@@ -1,6 +1,6 @@
 package com.example.taras.personalwork;
 
-import android.net.Uri;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,8 +14,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
     private TextView textView;
     private Button button;
     private EditText editText;
@@ -28,11 +26,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        house = new House();
+
         textView = (TextView) findViewById(R.id.textView);
         button = (Button) findViewById(R.id.button);
 
-        editText = (EditText) findViewById(R.id.editTextPeople);
+
         etInput = (EditText) findViewById(R.id.editTextStreet);
+        editText = (EditText) findViewById(R.id.editTextNumber);
 
         etInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                house.setStreet(s.toString());
+                if(house != null && s != null)house.setStreet(s.toString());
             }
         });
         editText.addTextChangedListener(new TextWatcher() {
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                house.setCountOfPeople(Integer.parseInt(s.toString()));
+                if(house != null && s != null) house.setCountOfPeople(Integer.parseInt(s.toString()));
             }
         });
 
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(new House("Politechnic", 5, TipeOfBuilding.OLDBUILDING).toString());
+                textView.setText(house.toString());
             }
         });
     }

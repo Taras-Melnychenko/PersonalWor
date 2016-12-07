@@ -7,16 +7,13 @@ package com.example.taras.personalwork;
 public class House {
     private String street;
     private int countOfPeople;
-    TipeOfBuilding tipeOfBuilding;
 
-    public House(String street, int countOfPeople, TipeOfBuilding tipeOfBuilding) {
+
+    public House(String street, int countOfPeople) {
         this.street = street;
         this.countOfPeople = countOfPeople;
-        this.tipeOfBuilding = tipeOfBuilding;
     }
-    public House() {
-
-    }
+    public House() {}
 
     public String getStreet() {
         return street;
@@ -34,23 +31,6 @@ public class House {
         this.countOfPeople = countOfPeople;
     }
 
-    public TipeOfBuilding getTipeOfBuilding() {
-        return tipeOfBuilding;
-    }
-
-    public void setTipeOfBuilding(TipeOfBuilding tipeOfBuilding) {
-        this.tipeOfBuilding = tipeOfBuilding;
-    }
-
-    @Override
-    public String toString() {
-        return "House{" +
-                "street='" + street + '\'' +
-                ", countOfPeople=" + countOfPeople +
-                ", tipeOfBuilding=" + tipeOfBuilding +
-                '}';
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -59,8 +39,7 @@ public class House {
         House house = (House) o;
 
         if (countOfPeople != house.countOfPeople) return false;
-        if (street != null ? !street.equals(house.street) : house.street != null) return false;
-        return tipeOfBuilding == house.tipeOfBuilding;
+        return street != null ? street.equals(house.street) : house.street == null;
 
     }
 
@@ -68,7 +47,14 @@ public class House {
     public int hashCode() {
         int result = street != null ? street.hashCode() : 0;
         result = 31 * result + countOfPeople;
-        result = 31 * result + (tipeOfBuilding != null ? tipeOfBuilding.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "street='" + street + '\'' +
+                ", countOfPeople=" + countOfPeople +
+                '}';
     }
 }
